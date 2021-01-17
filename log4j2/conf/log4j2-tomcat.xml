@@ -1,0 +1,23 @@
+<Configuration status="warn" name="catalina" packages="">
+  <Appenders>
+    <Console name="console" target="SYSTEM_OUT">
+      <PatternLayout>
+        <Pattern>%d [%p] %c{1} %m%n</Pattern>
+      </PatternLayout>
+    </Console>
+    <File name="file" fileName="tomcat/logs/catalina.log">
+      <PatternLayout>
+        <Pattern>%d [%p] %c{1} %m%n</Pattern>
+      </PatternLayout>
+    </File>
+    <Async name="Async">
+      <AppenderRef ref="file"/>
+    </Async>
+  </Appenders>
+  <Loggers>
+    <Root level="INFO">
+      <AppenderRef ref="Async"/>
+      <AppenderRef ref="console"/>	  
+    </Root>
+  </Loggers>
+</Configuration>
